@@ -1,0 +1,7 @@
+path: /home/kalie/work/projects/Apple-Orchard/experiments/datasets/phase1
+train: images/train
+val: images/val
+test: images/test
+
+nc: 4
+names: ["branch", "flower", "leaf-cluster", "fruit"]
