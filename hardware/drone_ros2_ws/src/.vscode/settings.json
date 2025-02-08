@@ -1,0 +1,16 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/rogue/Desktop/hackcbs/orchardeyes/install/tree_segmentation/lib/python3.10/site-packages",
+        "/home/rogue/Desktop/hackcbs/orchardeyes/install/tree_detection/lib/python3.10/site-packages",
+        "/home/rogue/Desktop/orchardeyes-ws/ros2_ws/install/pi_img_to_cv2/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/rogue/Desktop/hackcbs/orchardeyes/install/tree_segmentation/lib/python3.10/site-packages",
+        "/home/rogue/Desktop/hackcbs/orchardeyes/install/tree_detection/lib/python3.10/site-packages",
+        "/home/rogue/Desktop/orchardeyes-ws/ros2_ws/install/pi_img_to_cv2/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/tree_segmentation/tree_segmentation.egg-info/PKG-INFO
+../../build/tree_segmentation/tree_segmentation.egg-info/SOURCES.txt
+../../build/tree_segmentation/tree_segmentation.egg-info/dependency_links.txt
+../../build/tree_segmentation/tree_segmentation.egg-info/entry_points.txt
+../../build/tree_segmentation/tree_segmentation.egg-info/requires.txt
+../../build/tree_segmentation/tree_segmentation.egg-info/top_level.txt
+../../build/tree_segmentation/tree_segmentation.egg-info/zip-safe
+resource/tree_segmentation
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
+tree_segmentation/__init__.py
+tree_segmentation/main.py

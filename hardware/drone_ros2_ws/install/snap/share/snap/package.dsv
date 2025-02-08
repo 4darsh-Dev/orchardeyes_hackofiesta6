@@ -1,0 +1,6 @@
+source;share/snap/hook/pythonpath.ps1
+source;share/snap/hook/pythonpath.dsv
+source;share/snap/hook/pythonpath.sh
+source;share/snap/hook/ament_prefix_path.ps1
+source;share/snap/hook/ament_prefix_path.dsv
+source;share/snap/hook/ament_prefix_path.sh
