@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Analysis {
+  id                 Int      @id @default(autoincrement())
+  yield              Int
+  disease            Json
+  pests              Json
+  waterStress        Float
+  chlorophyllContent Float
+  farmId             Int
+  dateTime           DateTime @default(now())
+  Farm               Farm     @relation(fields: [farmId], references: [id])
+}
+
+model Chat {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  startTime DateTime  @default(now())
+  endTime   DateTime?
+  User      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Message   Message[]
+}
+
+model Farm {
+  id       Int        @id @default(autoincrement())
+  size     Float
+  species  String
+  location String
+  userId   Int
+  Analysis Analysis[]
+  User     User       @relation(fields: [userId], references: [id])
+  Soil     Soil[]
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  chatId    Int
+  sender    String
+  content   String
+  timestamp DateTime @default(now())
+  Chat      Chat     @relation(fields: [chatId], references: [id])
+}
+
+model Soil {
+  id                        Int      @id @default(autoincrement())
+  nutrientLevel             Json
+  soilType                  String
+  phLevel                   Float
+  organicMatterContent      Float
+  moistureLevel             Float
+  salinityLevel             Float
+  temperature               Float
+  bulkDensity               Float
+  texture                   String
+  lastTested                DateTime
+  soilDepth                 Float
+  moistureRetentionCapacity Float
+  farmId                    Int
+  Farm                      Farm     @relation(fields: [farmId], references: [id])
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  education String?
+  dob       DateTime?
+  Chat      Chat[]
+  Farm      Farm[]
+}
