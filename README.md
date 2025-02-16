@@ -3,92 +3,84 @@
 ## Overview
 A comprehensive solution for automated orchard management utilizing AI-powered image analysis, blockchain technology, and autonomous UAV drones.
 
+
+
 ## 🚀 Features
 
-### **Autonomous UAV Drone System**
-* High-resolution RGB camera monitoring
-* Multispectral and thermal imaging
-* GPS-guided precision navigation
-* LiDAR-based obstacle detection
-* Real-time data transmission
-
-### **Advanced AI Image Analysis**
-* Early pest detection using CNN/YOLO models
-* Disease identification in fruits, flowers, and leaves
-* Growth stage monitoring
-* Yield prediction
-
-### **IoT Integration**
-* Soil health monitoring
-* Weather station data integration
-* Real-time environmental tracking
-
-### **AI Voice Assistant**
-* Multilingual support
-* RAG-powered intelligent responses
-* Voice and text input capabilities
-* Farm management suggestions
-
-### **Blockchain-Enabled Marketing**
-* Virtual orchard tours
-* Product traceability
-* Transparent supply chain
-* Digital certification
+| **Category**               | **Details**                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| **Autonomous UAV Drone**   | High-res RGB camera, multispectral/thermal imaging, GPS navigation, LiDAR obstacle detection, real-time data transmission |
+| **AI Image Analysis**      | Early pest detection (CNN/YOLO), disease identification, growth stage monitoring, yield prediction |
+| **IoT Integration**        | Soil health monitoring, weather station integration, real-time environmental tracking |
+| **AI Voice Assistant**     | Multilingual support, RAG-powered responses, voice/text input, farm management suggestions |
+| **Blockchain Marketing**   | Virtual orchard tours, product traceability, transparent supply chain, digital certification |
 
 ## 🛠️ Tech Stack
 
-### Frontend
-* React + Vite
-* TailwindCSS
-* React Native (Mobile App)
+| **Category**   | **Technologies**                                                                 |
+|----------------|---------------------------------------------------------------------------------|
+| **Frontend**   | React + Vite, TailwindCSS, React Native (Mobile App)                            |
+| **Backend**    | Flask (Python), Express.js (Node.js), PostgreSQL, Pinecone/Chroma DB (Vector Storage) |
+| **AI/ML**      | PyTorch, OpenCV, YOLO family models, Weights & Biases (Model training)          |
+| **Blockchain** | Avalanche Network                                                               |
 
-### Backend
-* Flask (Python)
-* Express.js (Node.js)
-* PostgreSQL
-* Pinecone/Chroma DB (Vector Storage)
-
-### AI/ML
-* PyTorch
-* OpenCV
-* YOLO family models
-* Weights & Biases (Model training)
-
-### Blockchain
-* Avalanche Network
 
 ## 📋 Prerequisites
-* Python 3.8+
+* Python 3.10
 * Node.js 16+
-* PostgreSQL 13+
-* Docker & Docker Compose
+* Supabase with prisma ORM support or use local PostreS DB
 
 ## 🔧 Installation & Setup
 
-### 1. Clone the repository
+### Clone Repo:
 ```bash
-https://github.com/4darsh-Dev/orchardeyes_hackofiesta6.git
-cd orchardeyes_hackofiesta6
+   git clone https://github.com/4darsh-Dev/orchardeyes_hackofiesta6.git
+   cd orchardeyes_hackofiesta6
 ```
+## 🚀 Running the Application
 
-### 2. Set up Python environment
-```bash
-python -m venv myenv
-source myenv/bin/activate  # On Windows: .\myenv\Scripts\activate
-pip install -r requirements.txt
-```
-
-### 3. Install frontend dependencies
+### 1. Launch frontend application
 ```bash
 cd frontend
-npm i
+npm install ( # downloading packages)
+npm run dev
 ```
 
-### 4. Install mobile app dependencies
+### 2. Start backend services
+#### A> Flask server
 ```bash
-cd mobile-app
-npm i
+# USE PYTHON STABLE --> 10.12  to avoid package misconfig
+cd ai/server 
+python -m venv myenv (#creating virual env)
+pip install -r requirements.txt ( # installing python dependencies)
+source myenv/bin/activate (# linux) # activate virtual environment
+./myenv/Script/Activate (#windows)
 ```
+```bash
+  python app.py
+```
+#### B> ExpressJS Server
+```bash
+  cd backend
+  npm install
+  node app.js
+```
+
+
+### 3. ML Model Demo
+#### Make sure to install requirements.txt located in ai/server for packages before using
+```bash
+   cd experiment/scripts
+   # tree part classification model gradio app
+   gradio tree_part_cls/app.py
+
+   # leaf_disease demo
+   gradio leaf_disease_predict/app.py
+
+   # tree_detect
+   gradio tree_detect/app.py
+```
+
 
 ### 5. Set up environment variables
 ```bash
@@ -97,49 +89,6 @@ cp .env.example .env
 ```
 
 
-## 🚀 Running the Application
-
-### 1. Start backend services
-```bash
-# Start Flask server
-python run.py
-
-# Start Express server
-node app.js
-```
-
-### 2. Launch frontend application
-```bash
-cd frontend
-npm run dev
-```
-
-### 3. Run mobile application
-```bash
-cd mobile-app
-npm run android  # For Android
-npm run ios      # For iOS
-```
-
-## 🤖 Training AI Models
-
-### 1. Prepare dataset
-```bash
-python scripts/prepare_data.py --input-dir /path/to/images --output-dir data/processed
-```
-
-### 2. Train YOLO model
-```bash
-python train.py --data data/orchard.yaml --cfg models/yolov8m.yaml --epochs 100
-```
-
-
-## 🤝 Contributing
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📝 License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/4darsh-Dev/orchardeyes_hackofiesta6/blob/main/LICENSE) file for details.
