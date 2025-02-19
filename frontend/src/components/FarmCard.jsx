@@ -7,7 +7,9 @@ import {
   ArrowRight,
   Leaf,
   AlertTriangle,
-  Bot
+  Bot,
+  Cloud,
+  CloudAlert
 } from 'lucide-react'
 import Card from './Card'
 import DoughnutChartWithImage from '../components/charts/DoughnutChartWithImage'
@@ -15,8 +17,9 @@ import leafForChart from '../assets/img/leaf_for_chart.svg'
 import appleForChart from '../assets/img/apple_for_chart.png'
 import sunCloud from '../assets/img/sun_cloud.svg'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { weatherIcon } from './weatherIcon'
 
-const FarmDashboard = () => {
+const FarmDashboard = ({ weatherData }) => {
   const [farmMetrics, setFarmMetrics] = useState(null)
   const navigate = useNavigate()
   // Dummy data for development
@@ -226,43 +229,60 @@ const FarmDashboard = () => {
         </Card>
 
         {/* Weather Card */}
-        <Card
-          bgColor={'bg-[#cee6f4]'}
-          otherStyles={'border border-[#71c9bd]'}
-          margin={'0'}
-        >
-          <div
-            className='flex items-center justify-between gap-4'
-            onClick={() => {
-              navigate('/farm-management/weather')
-            }}
+        {weatherData ? (
+          <Card
+            bgColor={'bg-[#cee6f4]'}
+            otherStyles={'border border-[#71c9bd]'}
+            margin={'0'}
           >
-            <div className='flex items-center'>
-              <img src={sunCloud} alt='sun behing clouds' />
-            </div>
-            <div className='flex flex-col'>
-              <div className='text-right flex gap-2  items-center'>
-                <span className='text-2xl text-semibold text-blue-700'>
-                  {temperature}&#176;
-                </span>
-                <span className='block text-xl text-bold text-blue-700'>
-                  {prediction}
-                </span>
+            <div
+              className='flex items-center justify-between gap-4'
+              onClick={() => {
+                navigate('/farm-management/weather')
+              }}
+            >
+              <div className='flex items-center'>
+                {weatherIcon(weatherData.current.condition, 40)}
               </div>
-              <div className='border-t border-black my-2'></div>
               <div className='flex flex-col'>
-                <div className='text-right flex gap-2 items-center'>
-                  <span className='text-md text-semibold text-blue-700'>
-                    {humidity}%
+                <div className='text-right flex gap-2  items-center'>
+                  <span className='text-2xl text-semibold text-blue-700'>
+                    {weatherData.current.temp}&#176;
                   </span>
-                  <span className='block text-sm text-semibold text-blue-700'>
-                    humidity
+                  <span className='block text-xl text-bold text-blue-700'>
+                    {weatherData.current.condition}
                   </span>
+                </div>
+                <div className='border-t border-black my-2'></div>
+                <div className='flex flex-col'>
+                  <div className='text-right flex gap-2 items-center'>
+                    <span className='text-md text-semibold text-blue-700'>
+                      {weatherData.current.humidity}%
+                    </span>
+                    <span className='block text-sm text-semibold text-blue-700'>
+                      humidity
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Card>
+          </Card>
+        ) : (
+          <Card
+            bgColor={'bg-gradient-to-br from-red-400 to-red-500'}
+            otherStyles={'border border-[#db113d]'}
+            margin={'0'}
+          >
+            <div
+              className='flex items-center justify-center'
+              onClick={() => {
+                navigate('/farm-management/weather')
+              }}
+            >
+              <CloudAlert color='white' size={70} />
+            </div>
+          </Card>
+        )}
       </div>
 
       {/* Today's Tasks Section */}

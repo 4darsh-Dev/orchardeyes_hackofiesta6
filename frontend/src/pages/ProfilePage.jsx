@@ -118,7 +118,7 @@ const ProfilePage = ({ userData }) => {
   }
 
   return (
-    <div className='max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg'>
+    <div className='max-w-4xl mx-auto p-6 bg-white'>
       {/* Profile Header */}
       <div className='relative mb-8'>
         <div className='h-40 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg' />

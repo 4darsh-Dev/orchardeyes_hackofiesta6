@@ -146,13 +146,16 @@ const MapComponent = () => {
     return true
   })
 
+  // const tileLayerUrl =
+  //   'https://api.jawg.io/static?zoom=12&center=48.856,2.351&size=400x300&layer=jawg-sunny&format=png&access-token=Y9Wf945CKUCY8eISt4rJ3mZBZoPyd43H1p3R2h33HkMNVInGHvMGH8TOcLG7kiyh'
+
   const tileLayerUrl =
     theme === 'light'
       ? 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
 
   return (
-    <div className='relative h-[calc(100vh-4rem)]'>
+    <div className='relative h-[calc(100vh-4rem)] w-screen'>
       {/* <MapControls
         onSearch={handleSearch}
         onFilter={handleFilter}

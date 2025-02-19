@@ -26,3 +26,11 @@ export const getImagePrediction = async (formdata) => {
   )
   return response.json()
 }
+export const getWeatherData = async (latitude, longitude) => {
+  const res = await fetch(
+    `${VITE_BACKEND_URL}/get-weather-data?lat=${latitude}&lon=${longitude}`
+  )
+  const data = await res.json()
+  console.log(data)
+  return data
+}

@@ -93,16 +93,14 @@ const Analysis = ({ currentAnalysisSlide, setCurrentAnalysisSlide }) => {
                 data1={data.health.leaves.healthy}
                 data2={data.health.leaves.unhealthy}
               />
-              <Card bgColor='bg-emerald-50' margin='mt-4'>
-                <div className='text-center'>
-                  <p className='font-semibold text-lg text-emerald-700'>
-                    {data.health.leaves.healthy}% Healthy
-                  </p>
-                  <p className='text-red-600'>
-                    {data.health.leaves.unhealthy}% Diseased
-                  </p>
-                </div>
-              </Card>
+              <div className='text-center'>
+                <p className='font-semibold text-lg text-emerald-700'>
+                  {data.health.leaves.healthy}% Healthy
+                </p>
+                <p className='text-red-600'>
+                  {data.health.leaves.unhealthy}% Diseased
+                </p>
+              </div>
             </div>
             <div className='flex flex-col items-center gap-4'>
               <DoughnutChartWithImage
@@ -112,16 +110,14 @@ const Analysis = ({ currentAnalysisSlide, setCurrentAnalysisSlide }) => {
                 data1={data.health.fruit.healthy}
                 data2={data.health.fruit.unhealthy}
               />
-              <Card bgColor='bg-emerald-50' margin='mt-4'>
-                <div className='text-center'>
-                  <p className='font-semibold text-lg text-emerald-700'>
-                    {data.health.fruit.healthy}% Healthy
-                  </p>
-                  <p className='text-red-600'>
-                    {data.health.fruit.unhealthy}% Diseased
-                  </p>
-                </div>
-              </Card>
+              <div className='text-center'>
+                <p className='font-semibold text-lg text-emerald-700'>
+                  {data.health.fruit.healthy}% Healthy
+                </p>
+                <p className='font-semibold text-lg text-red-600'>
+                  {data.health.fruit.unhealthy}% Diseased
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -159,17 +155,11 @@ const Analysis = ({ currentAnalysisSlide, setCurrentAnalysisSlide }) => {
             data={farmMetrics.estimatedAppleYield}
             title='Estimated Apple Count (tonnes)'
           />
-          <div className='grid grid-cols-3 gap-4'>
-            {data.predictedDiseases.disease.map((disease, index) => (
-              <Card key={disease} bgColor='bg-orange-50'>
-                <div className='text-center'>
-                  <p className='font-semibold'>{disease}</p>
-                  <p className='text-lg text-orange-700'>
-                    {data.predictedDiseases.chance[index]}%
-                  </p>
-                </div>
-              </Card>
-            ))}
+          <div className='flex flex-col items-start gap-4'>
+            <h2 className='text-xl font-bold text-[#8f8d8d]'>
+              Expected Annual Production
+            </h2>
+            <p className='text-4xl font-bold text-green-700'>1100 Tonnes</p>
           </div>
         </div>
       )

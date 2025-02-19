@@ -48,7 +48,7 @@ const TopBar = ({ activeTab }) => {
                     />
                   ) : (
                     <div
-                      className='rounded-full h-[7vh] w-[7vh] bg-[#7812b7] text-white text-2xl flex items-center justify-center'
+                      className='rounded-full h-[5vh] w-[5vh] bg-[#7812b7] text-white text-2xl flex items-center justify-center'
                       style={{ fontFamily: 'Sour Gummy, sans-serif' }}
                     >
                       {user.name.charAt(0).toUpperCase()}
