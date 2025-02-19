@@ -51,7 +51,7 @@ const Navbar = ({ background, isAuthenticated }) => {
   return (
     <nav
       // background={background}
-      className='shadow hidden sm:flex bg-white justify-between items-center fixed top-0 left-0 w-full p-[1vh_1.5rem] box-border bg-white z-[1000] border-b border-[#e3e1e1]'
+      className='shadow hidden sm:flex bg-white justify-between items-center fixed top-0 left-0 w-full p-[1vh_1.5rem] box-border bg-white z-[1111] border-b border-[#e3e1e1]'
     >
       <Logo>
         <LogoImage src={LogoImg} alt='apple-orchard-logo' />

@@ -16,7 +16,7 @@ import QuickActions from './QuickActions'
 import Chatbot from '../components/chatbot/Chatbot'
 import { Outlet, useLocation } from 'react-router-dom'
 
-const OrchardManagement = ({ activeTab, setActiveTab }) => {
+const OrchardManagement = ({ activeTab, setActiveTab, handleWeatherData }) => {
   const [farmMetrics, setFarmMetrics] = useState(null)
   const location = useLocation()
   // Dummy data for development

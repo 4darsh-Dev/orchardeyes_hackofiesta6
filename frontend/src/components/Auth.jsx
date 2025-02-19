@@ -1,4 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const LoginBtn = styled.button`
@@ -29,6 +30,7 @@ const RegisterBtn = styled.button`
 
 const Auth = ({ isAuthenticated }) => {
   const { loginWithRedirect, logout, user } = useAuth0()
+  const navigate = useNavigate()
   return isAuthenticated ? (
     <div className='flex items-center gap-3'>
       <RegisterBtn
@@ -43,20 +45,27 @@ const Auth = ({ isAuthenticated }) => {
       >
         Log Out
       </RegisterBtn>
-      {user.img ? (
-        <img
-          src={user.picture}
-          alt={user.name}
-          className='rounded-full h-[7vh]'
-        />
-      ) : (
-        <div
-          className='rounded-full h-[7vh] w-[7vh] bg-[#7812b7] text-white text-2xl flex items-center justify-center'
-          style={{ fontFamily: 'Sour Gummy, sans-serif' }}
-        >
-          {user.name.charAt(0).toUpperCase()}
-        </div>
-      )}
+      <button
+        className='p-1 text-gray-600 hover:text-gray-900 rounded-full bg-gray-100 hover:bg-gray-200'
+        onClick={() => {
+          navigate('/profile')
+        }}
+      >
+        {user.img ? (
+          <img
+            src={user.picture}
+            alt={user.name}
+            className='rounded-full h-[7vh]'
+          />
+        ) : (
+          <div
+            className='rounded-full h-[7vh] w-[7vh] bg-[#7812b7] text-white text-2xl flex items-center justify-center'
+            style={{ fontFamily: 'Sour Gummy, sans-serif' }}
+          >
+            {user.name.charAt(0).toUpperCase()}
+          </div>
+        )}
+      </button>
     </div>
   ) : (
     <div>
